@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         ::::::::           */
-/*   libft.h                                             :+:    :+:           */
-/*                                                      +:+                   */
-/*   By: selcyilm <marvin@42.fr>                       +#+                    */
-/*                                                    +#+                     */
-/*   Created: 2024/10/08 14:20:04 by selcyilm       #+#    #+#                */
-/*   Updated: 2024/10/08 14:20:06 by selcyilm       ########   odam.nl        */
+/*                                                        ::::::::            */
+/*   libft.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: selcyilm <marvin@42.fr>                      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/10/08 14:20:04 by selcyilm      #+#    #+#                 */
+/*   Updated: 2024/12/26 22:51:40 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 char		*ft_strdup(const char *s);
+char		*ft_strjoin_with(char *s1, char *s2, char c);
+
 // STDLIB.H
 
 int			ft_atoi(const char *str);

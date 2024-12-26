@@ -8,4 +8,15 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 
+typedef struct s_cmd
+{
+	char	*cmd;
+	char	**argv;
+	char	**envp;
+	char	*file;
+	int		in_fd;
+	int		out_fd;
+}	t_cmd;
+
+
 #endif

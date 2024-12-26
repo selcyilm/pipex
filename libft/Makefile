@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                          ::::::::            #
-#    Makefile                                            :+:    :+:            #
-#                                                       +:+                    #
-#    By: selcyilm <marvin@42.fr>                       +#+                     #
-#                                                     +#+                      #
-#    Created: 2024/10/08 14:20:15 by selcyilm       #+#    #+#                 #
-#    Updated: 2024/10/08 14:20:17 by selcyilm       ########   odam.nl         #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: selcyilm <marvin@42.fr>                      +#+                      #
+#                                                    +#+                       #
+#    Created: 2024/10/08 14:20:15 by selcyilm      #+#    #+#                  #
+#    Updated: 2024/12/26 22:51:59 by selcyilm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS		=	./stdlib/ft_atoi.c\
 			./string/ft_strrchr.c\
 			./string/ft_strtrim.c\
 			./string/ft_substr.c\
+			./string/ft_strjoin_with.c\
 			./get_next_line/get_next_line.c\
 			./get_next_line/get_next_line_utils.c\
 
