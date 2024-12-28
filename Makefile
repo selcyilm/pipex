@@ -1,6 +1,6 @@
 NAME = pipex
 
-SRC = main.c
+SRC = fn_cmd_clean.c  fn_cmds_init.c  fn_env_utils.c  fn_exec_cmd.c  fn_exec_pipe.c  fn_matrix_free.c  fn_matrix_print.c  main.c
 
 SRC_DIR = src
 OBJ_DIR = obj
