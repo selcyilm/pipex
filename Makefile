@@ -7,7 +7,7 @@ OBJ_DIR = obj
 INCLUDE = include
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 LIBFT = libft/libft.a
-CC = cc -Wall -Werror -Wextra -g3 -fsanitize=address,undefined,leak
+CC = cc -Wall -Werror -Wextra -g3 #-fsanitize=address,undefined,leak
 
 all: $(LIBFT) $(NAME)
 

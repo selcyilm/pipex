@@ -1,4 +1,5 @@
 #include "pipex.h"
+#include <time.h>
 
 int main(int ac, char **av, char **env)
 {
@@ -13,12 +14,3 @@ int main(int ac, char **av, char **env)
 	fn_cmd_clean(&cmd[0]);
 	fn_cmd_clean(&cmd[1]);
 }
-
-//pipe
-//fork
-//init left child
-//write pipe fd
-//init right child
-//read it from fd that is written
-//exec command
-//redirect out to a file

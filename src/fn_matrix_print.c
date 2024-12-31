@@ -20,3 +20,4 @@ void	fn_matrix_print(char **matrix)
 	while (matrix[i])
 		printf("%s\n", matrix[i++]);
 }
+
