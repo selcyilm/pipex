@@ -6,7 +6,7 @@
 /*   By: selcyilm <marvin@42.fr>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/10/08 14:20:04 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/28 22:37:23 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 20:44:53 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
