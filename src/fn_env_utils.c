@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 17:47:59 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/28 17:48:31 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 14:51:10 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**fn_env_get_path(char **env)
 
 	split = NULL;
 	i = 0;
-	while(env[i])
+	while (env[i])
 	{
 		if (ft_strncmp("PATH=", env[i], 5) == 0)
 		{

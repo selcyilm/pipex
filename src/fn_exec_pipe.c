@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 22:20:36 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/28 22:52:43by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 14:52:56 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	fn_exec_left(t_cmd *cmd, int *pipefd)
 {
-	int status;
+	int	status;
+	int	fd;
 
+	fd = open(cmd->file, O_RDONLY);
 	close(pipefd[0]);
-	int fd = open(cmd->file, O_RDONLY);
 	dup2(fd, STDIN_FILENO);
 	close(fd);
 	if (dup2(pipefd[1], STDOUT_FILENO) == -1)
@@ -28,17 +29,15 @@ void	fn_exec_left(t_cmd *cmd, int *pipefd)
 	}
 	close(pipefd[1]);
 	status = fn_exec_cmd(cmd);
-	//execve(cmd->cmd, cmd->argv, cmd->envp);
-	//perror(cmd->cmd);
-	//exit(EXIT_FAILURE);
 	exit(status);
 }
 
 void	fn_exec_right(t_cmd *cmd, int *pipefd)
 {
 	int	status;
+	int	fd;
 
-	int fd = open(cmd->file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	fd = open(cmd->file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	dup2(fd, STDOUT_FILENO);
 	close(fd);
 	close(pipefd[1]);
@@ -49,10 +48,7 @@ void	fn_exec_right(t_cmd *cmd, int *pipefd)
 		exit(EXIT_FAILURE);
 	}
 	close(pipefd[0]);
-	//status = fn_exec_cmd(cmd);
-	execve(cmd->cmd, cmd->argv, cmd->envp);
-	perror(cmd->cmd);
-	exit(EXIT_FAILURE);
+	status = fn_exec_cmd(cmd);
 	exit(status);
 }
 

@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 17:54:43 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/28 17:55:00 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 14:50:52 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ void	fn_matrix_print(char **matrix)
 	while (matrix[i])
 		printf("%s\n", matrix[i++]);
 }
-
