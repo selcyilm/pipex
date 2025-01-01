@@ -19,7 +19,6 @@ $(NAME): $(OBJ_DIR) $(OBJ)
 	@echo "\033[32m$@\033[0m is ready."
 	@echo "Usage: ./pipex [infile] [cmd1] [cmd2] [outfile]"
 
-
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -I$(INCLUDE) -c $< -o $@
 	@echo "$< \033[32mcompiled.\033[0m"

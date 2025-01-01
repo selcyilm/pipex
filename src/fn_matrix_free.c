@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 17:49:09 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/28 17:50:06 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 15:48:58 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	fn_matrix_free(char **matrix)
 	int	i;
 
 	i = 0;
+	if (!matrix || !*matrix)
+		return ;
 	while (matrix[i])
 	{
 		free(matrix[i]);

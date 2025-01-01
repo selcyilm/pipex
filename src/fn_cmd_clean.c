@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 18:00:32 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/28 18:01:05 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 15:49:50 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	fn_cmd_clean(t_cmd *cmd)
 {
 	fn_matrix_free(cmd->argv);
 	fn_matrix_free(cmd->envp);
-	free(cmd->file);
-	free(cmd->cmd);
+	if (cmd->file)
+		free(cmd->file);
+	if (cmd->cmd)
+		free(cmd->cmd);
+	if (cmd->in_fd != -1)
+		close(cmd->in_fd);
+	if (cmd->out_fd != -1)
+		close(cmd->out_fd);
 }
