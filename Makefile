@@ -12,23 +12,29 @@ CC = cc -Wall -Werror -Wextra -g3 -fsanitize=address,undefined,leak
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C libft/ all
+	@$(MAKE) -s -C libft/ all
 
 $(NAME): $(OBJ_DIR) $(OBJ)
-	$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+	@echo "\033[32m$@\033[0m is ready."
+	@echo "Usage: ./pipex [infile] [cmd1] [cmd2] [outfile]"
+
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -I$(INCLUDE) -c $< -o $@
+	@$(CC) -I$(INCLUDE) -c $< -o $@
+	@echo "$< \033[32mcompiled.\033[0m"
 
 clean:
-	$(MAKE) -C libft/ clean
-	rm -rf $(OBJ_DIR)
+	@$(MAKE) -s -C libft/ clean
+	@rm -rf $(OBJ_DIR)
+	@echo "Object Files Removed!"
 
 fclean: clean
-	$(MAKE) -C libft/ fclean
-	rm -rf $(NAME)
+	@$(MAKE) -s -C libft/ fclean
+	@rm -rf $(NAME)
+	@echo "Executable File Removed!"
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 re: fclean all

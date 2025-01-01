@@ -6,7 +6,7 @@
 #    By: selcyilm <marvin@42.fr>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/10/08 14:20:15 by selcyilm      #+#    #+#                  #
-#    Updated: 2024/12/26 22:51:59 by selcyilm      ########   odam.nl          #
+#    Updated: 2025/01/01 15:19:06 by selcyilm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,14 +93,14 @@ endif
 
 $(NAME)		:	$(PRINTF) $(OBJ_SWITCH)
 			@$(LIB) $@ $^
-			@echo "$(COLOUR_ORANGE)LIBFT.A IS READY TO GO$(COLOUR_END)"
+			@echo "$(COLOUR_ORANGE)libft.a is ready!$(COLOUR_END)"
 
 $(PRINTF)	:
 			@make -s -C ./ft_printf
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(COLOUR_GREEN)CREATING $@$(COLOUR_END)"
+	@echo "$< \033[32mcompiled.\033[0m"
 
 all			:	bonus $(NAME)
 

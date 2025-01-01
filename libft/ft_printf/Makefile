@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                          ::::::::            #
-#    Makefile                                            :+:    :+:            #
-#                                                       +:+                    #
-#    By: selcyilm <marvin@42.fr>                       +#+                     #
-#                                                     +#+                      #
-#    Created: 2024/10/10 18:22:09 by selcyilm       #+#    #+#                 #
-#    Updated: 2024/10/15 10:30:21 by selcyilm       ########   odam.nl         #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: selcyilm <marvin@42.fr>                      +#+                      #
+#                                                    +#+                       #
+#    Created: 2024/10/10 18:22:09 by selcyilm      #+#    #+#                  #
+#    Updated: 2025/01/01 15:19:32 by selcyilm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(COLOUR_GREEN)CREATING $@$(COLOUR_END)"
+	@echo "$< \033[32mcompiled.\033[0m"
 
 all: $(NAME)
 
