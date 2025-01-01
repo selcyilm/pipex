@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 22:20:36 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/01 16:46:32 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 18:46:45 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	fn_exec_left(t_cmds *cmds, t_cmd *cmd, int *pipefd)
 		exit(EXIT_FAILURE);
 	}
 	close(pipefd[1]);
-	status = fn_exec_cmd(cmd);
+	status = fn_exec_cmd(cmds, cmd);
 	fn_cmd_clean(cmds->left);
 	fn_cmd_clean(cmds->right);
 	exit(status);
@@ -46,7 +46,7 @@ static void	fn_exec_right(t_cmds *cmds, t_cmd *cmd, int *pipefd)
 		exit(EXIT_FAILURE);
 	}
 	close(pipefd[0]);
-	status = fn_exec_cmd(cmd);
+	status = fn_exec_cmd(cmds, cmd);
 	fn_cmd_clean(cmds->left);
 	fn_cmd_clean(cmds->right);
 	exit(status);

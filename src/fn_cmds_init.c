@@ -6,13 +6,23 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 17:55:52 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/01 15:52:48 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 20:15:18 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #define LEFT 1
 #define RIGHT 0
+
+static void	fn_init_null(t_cmd *cmd)
+{
+	cmd->argv = NULL;
+	cmd->cmd = NULL;
+	cmd->envp = NULL;
+	cmd->file = NULL;
+	cmd->in_fd = 0;
+	cmd->out_fd = 0;
+}
 
 static int	fn_open_files(t_cmd *cmd, int left_or_rigt)
 {
@@ -21,6 +31,12 @@ static int	fn_open_files(t_cmd *cmd, int left_or_rigt)
 		cmd->in_fd = open(cmd->file, O_RDONLY);
 		if (cmd->in_fd == -1)
 		{
+			if (errno == ENOENT || errno == EACCES)
+			{
+				cmd->in_fd = 0;
+				perror(cmd->file);
+				return (EXIT_SUCCESS);
+			}
 			perror(cmd->file);
 			return (EXIT_FAILURE);
 		}
@@ -39,6 +55,7 @@ static int	fn_open_files(t_cmd *cmd, int left_or_rigt)
 
 static	int	fn_cmd_init(t_cmd *cmd, char **env, char **av, int left_or_right)
 {
+	fn_init_null(cmd);
 	cmd->envp = fn_env_get_path(env);
 	if (!cmd->envp)
 		return (EXIT_FAILURE);
@@ -46,7 +63,7 @@ static	int	fn_cmd_init(t_cmd *cmd, char **env, char **av, int left_or_right)
 		cmd->argv = ft_split(av[2], ' ');
 	else
 		cmd->argv = ft_split(av[3], ' ');
-	if (!cmd->argv)
+	if (!cmd->argv[0] || !cmd->argv)
 		return (EXIT_FAILURE);
 	cmd->cmd = fn_env_get_exec_path(cmd->argv[0], cmd->envp);
 	if (!cmd->cmd)

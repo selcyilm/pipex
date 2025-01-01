@@ -6,13 +6,13 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/28 22:14:31 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/01 16:46:10 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 18:47:39 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	fn_exec_cmd(t_cmd *cmd)
+int	fn_exec_cmd(t_cmds *cmds, t_cmd *cmd)
 {
 	pid_t	pid;
 	int		status;
@@ -24,6 +24,8 @@ int	fn_exec_cmd(t_cmd *cmd)
 	{
 		execve(cmd->cmd, cmd->argv, cmd->envp);
 		perror(cmd->cmd);
+		fn_cmd_clean(cmds->left);
+		fn_cmd_clean(cmds->right);
 		exit(EXIT_FAILURE);
 	}
 	waitpid(pid, &status, 0);

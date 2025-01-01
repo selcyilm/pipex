@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include <time.h>
 
 int	main(int ac, char **av, char **env)
 {
