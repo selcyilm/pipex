@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/31 22:11:49 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/31 22:11:50 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/01 16:45:19 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,18 @@ typedef struct s_cmd
 	int		out_fd;
 }	t_cmd;
 
+typedef struct s_cmds
+{
+	struct s_cmd	*left;
+	struct s_cmd	*right;
+}	t_cmds;
+
 void	fn_matrix_free(char **matrix);
 char	*fn_env_get_exec_path(char *command, char **split);
 char	**fn_env_get_path(char **env);
 void	fn_cmd_clean(t_cmd *cmd);
 void	fn_cmds_init(t_cmd *cmd1, t_cmd *cmd2, char **env, char **av);
 int		fn_exec_cmd(t_cmd *cmd);
-int		fn_exec_pipe(t_cmd *cmd1, t_cmd *cmd2);
+int		fn_exec_pipe(t_cmds *cmds, t_cmd *cmd1, t_cmd *cmd2);
 
 #endif
