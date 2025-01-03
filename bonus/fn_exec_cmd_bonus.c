@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/02 14:15:38 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/02 18:35:51 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/02 20:00:41 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	fn_exec_child(t_pipex *pipex)
 	//fn_cmd_clean(cmds->left);
 	//fn_cmd_clean(cmds->right);
 	//exit(EXIT_FAILURE);
+	(void)pipex;
 }
 
 int	fn_exec_cmd(t_pipex *pipex)

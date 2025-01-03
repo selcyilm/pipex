@@ -22,7 +22,7 @@ typedef struct s_pipex
 	int				out_fd;
 	char			**envs;
 	char			**envp;
-	struct s_cmd	*cmd;
+	t_list			*cmds;
 }	t_pipex;
 
 //ENV UTILS
@@ -31,7 +31,12 @@ char	*fn_env_get_exec_path(char *command, char **split);
 void	fn_matrix_free(char **matrix);
 void	fn_matrix_print(char **matrix);
 
-void	fn_cmd_clear(t_cmd **cmd);
+void	fn_cmd_clear(void *cmds);
 void	fn_pipex_clear(t_pipex **pipex);
+
+t_cmd	*fn_cmd_new(char *cmd, char **argv);
+int		fn_pipex_init(t_pipex *pipex, char **envs);
+
+int		fn_cmds_parse(t_pipex *pipex, char **av, int ac);
 
 #endif

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fn_cmd_clear_bonus.c                               :+:    :+:            */
+/*   fn_cmd_new.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/01/02 14:43:20 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/02 21:05:31 by selcyilm      ########   odam.nl         */
+/*   Created: 2025/01/02 19:49:46 by selcyilm      #+#    #+#                 */
+/*   Updated: 2025/01/02 21:07:26 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	fn_cmd_clear(void *cmds)
+t_cmd	*fn_cmd_new(char *cmd, char **argv)
 {
-	t_cmd *cmd = cmds;
-	if (!cmd)
-		return ;
-	if (cmd->argv)
-		fn_matrix_free(cmd->argv);
-	if (cmd->exec_cmd)
-		free(cmd->exec_cmd);
-	free(cmd);
-	cmd = NULL;
+	t_cmd	*new;
+
+	new = ft_calloc(1, sizeof(t_cmd));
+	if (new == NULL)
+		return (NULL);
+	new->exec_cmd = cmd;
+	new->argv = argv;
+	return (new);
 }

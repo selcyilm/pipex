@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fn_cmd_clear_bonus.c                               :+:    :+:            */
+/*   fn_args_parse.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/01/02 14:43:20 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/02 21:05:31 by selcyilm      ########   odam.nl         */
+/*   Created: 2025/01/02 20:08:17 by selcyilm      #+#    #+#                 */
+/*   Updated: 2025/01/02 21:07:02 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	fn_cmd_clear(void *cmds)
+int	fn_args_parse(t_pipex *pipex, char **av, int ac)
 {
-	t_cmd *cmd = cmds;
-	if (!cmd)
-		return ;
-	if (cmd->argv)
-		fn_matrix_free(cmd->argv);
-	if (cmd->exec_cmd)
-		free(cmd->exec_cmd);
-	free(cmd);
-	cmd = NULL;
+	if (ft_strncmp(av[1], "here_doc", 8) == 0)
+		pipex->heredoc = true;
+	if (pipex->heredoc)
+	{
+		if (ac < 6)
+			return (EXIT_FAILURE);
+		
+	}
+	return (EXIT_SUCCESS);
+	
 }

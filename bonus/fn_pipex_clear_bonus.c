@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fn_pipex_clear.c                                   :+:    :+:            */
+/*   fn_pipex_clear_bonus.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/02 14:42:36 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/02 18:33:39 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/02 20:25:21 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	fn_close_fd(t_pipex *pipex)
 
 void	fn_pipex_clear(t_pipex **pipex)
 {
-	if ((*pipex)->cmd)
-		fn_cmd_clear(&(*pipex)->cmd);
+	if ((*pipex)->cmds)
+		ft_lstclear(&(*pipex)->cmds, fn_cmd_clear);
 	if ((*pipex)->envs)
 		fn_matrix_free((*pipex)->envs);
 	if ((*pipex)->envp)
 		fn_matrix_free((*pipex)->envp);
 	fn_close_fd(*pipex);
+	free(*pipex);
+	*pipex = NULL;
 }
