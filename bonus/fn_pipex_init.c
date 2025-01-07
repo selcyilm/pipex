@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/02 18:40:35 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/02 20:24:04 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/07 11:43:29 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	fn_pipex_init_null(t_pipex *pipex)
 	pipex->out_fd = -1;
 	pipex->envp = NULL;
 	pipex->envs = NULL;
-	pipex->heredoc = false;
+	//pipex->heredoc = false;
 	pipex->cmds = NULL;
 }
 

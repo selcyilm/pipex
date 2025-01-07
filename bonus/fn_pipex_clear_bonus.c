@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/02 14:42:36 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/02 20:25:21 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/07 12:39:40 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	fn_close_fd(t_pipex *pipex)
 
 void	fn_pipex_clear(t_pipex **pipex)
 {
+	if (!pipex || !*pipex)
+		return ;
 	if ((*pipex)->cmds)
 		ft_lstclear(&(*pipex)->cmds, fn_cmd_clear);
 	if ((*pipex)->envs)
