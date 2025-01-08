@@ -3,9 +3,9 @@ NAMEB = pipex_bonus
 
 SRC = fn_cmd_clean.c  fn_cmds_init.c  fn_env_utils.c  fn_exec_cmd.c \
 	fn_exec_pipe.c  fn_matrix_free.c  fn_matrix_print.c  main.c
-SRCB = fn_args_parse.c       fn_cmds_parse.c       fn_exec_heredoc.c        fn_pipex_clear_bonus.c \
-fn_cmd_clear_bonus.c  fn_env_utils_bonus.c  fn_matrix_free_bonus.c   fn_pipex_init.c \
-fn_cmd_new.c          fn_exec_cmd_bonus.c   fn_matrix_print_bonus.c  main_bonus.c
+SRCB = fn_args_parse.c       fn_cmds_parse.c       fn_exec_heredoc.c       fn_matrix_print_bonus.c  \
+main_bonus.c fn_cmd_clear_bonus.c  fn_env_utils_bonus.c  fn_exec_pipe_bonus.c    fn_pipex_clear_bonus.c \
+fn_cmd_new.c          fn_exec_cmd_bonus.c   fn_matrix_free_bonus.c  fn_pipex_init.c
 
 SRCB_DIR = bonus
 OBJB_DIR = obj_bonus
@@ -15,7 +15,7 @@ INCLUDE = include
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 OBJB = $(SRCB:%.c=$(OBJB_DIR)/%.o)
 LIBFT = libft/libft.a
-CC = cc -Wall -Werror -Wextra -g3 -fsanitize=address,undefined,leak
+CC = cc -Wall -Werror -Wextra -g3 #-fsanitize=address,undefined,leak
 
 all: $(LIBFT) $(NAME)
 

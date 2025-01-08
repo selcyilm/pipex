@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/02 14:42:36 by selcyilm      #+#    #+#                 */
-/*   Updated: 2025/01/07 12:39:40 by selcyilm      ########   odam.nl         */
+/*   Updated: 2025/01/08 10:46:37 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	fn_pipex_clear(t_pipex **pipex)
 	fn_close_fd(*pipex);
 	free(*pipex);
 	*pipex = NULL;
+	unlink(HEREDOC_PATH);
 }

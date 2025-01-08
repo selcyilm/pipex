@@ -37,10 +37,12 @@ void	fn_cmd_clear(void *cmds);
 void	fn_pipex_clear(t_pipex **pipex);
 
 t_cmd	*fn_cmd_new(char *cmd, char **argv);
-int		fn_pipex_init(t_pipex *pipex, char **envs);
+int		fn_pipex_init(t_pipex *pipex, char **envs, char **av, int ac);
 
 int		fn_cmds_parse(t_pipex *pipex, char **av, int ac);
 
 int	fn_exec_heredoc(t_pipex *pipex, char *limeter);
+int	fn_exec_pipe(t_pipex *pipex);
+int	fn_exec_cmd(t_pipex *pipex, t_cmd *cmd);
 
 #endif

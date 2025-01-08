@@ -20,7 +20,7 @@ void	fn_write_heredoc(char *limeter, int fd)
 	}
 }
 
-int	fn_create_heredoc(char *limeter)
+void	fn_create_heredoc(char *limeter)
 {
 	int	fd;
 
@@ -32,16 +32,17 @@ int	fn_create_heredoc(char *limeter)
 	}
 	fn_write_heredoc(limeter, fd);
 	close(fd);
-	return (open(HEREDOC_PATH, O_RDONLY));
+	//return (open(HEREDOC_PATH, O_RDONLY));
 }
 
 void	fn_heredoc_child(t_pipex *pipex, char *limeter)
 {
 	close(pipex->in_fd);
-	pipex->in_fd = fn_create_heredoc(limeter);
+	fn_create_heredoc(limeter);
 	if (pipex->in_fd == -1)
 		exit(EXIT_FAILURE);
 	//fn_pipex_clear(&pipex);
+	exit(EXIT_SUCCESS);
 }
 
 
